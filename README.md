@@ -1,0 +1,2 @@
+# personalizedMailer
+personalizedMailer project
