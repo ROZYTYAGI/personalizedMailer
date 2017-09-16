@@ -7,17 +7,28 @@ import {PreferencesService} from '../preferences.service';
   styleUrls: ['./preferences.component.css']
 })
 export class PreferencesComponent implements OnInit {
-checkBox: any={};
+checkBox: any=[];
+checkBoxCheck: any=[];
+radioBut: any=[];
+user: any={};
+topics: any=[];
   constructor(private preference: PreferencesService) { }
 
   ngOnInit() {
+
+    this.user = {
+        gender: this.genders[0].value,
+        role: null
+    }
+
   }
   selectedValue: any = [];
   public genders = [
-    { value: 'F', display: 'Female' },
-    { value: 'M', display: 'Male' }
+    { value: 'H', display: 'Hourly' },
+    { value: 'D', display: 'Daily' },
+    {value: 'W', display: 'weekly'}
 ];
-public maintainanceTypeList = [
+public preferenceTypeList = [
     {preferencestype: 'Funds'},
     {preferencestype: 'GoldETF'},
     {preferencestype: 'Bonds'},
@@ -25,7 +36,13 @@ public maintainanceTypeList = [
     {preferencestype: 'CommercialRealEstate'}
 
   ];
-  change(e, type){
+  public modeOfContact=[
+{contactType: 'Email'},
+{contactType:'Mobile'}
+  ];
+
+    //.................
+    change(e, type){
 this.checkBox={
   "Funds": type.Funds,
   "GoldETF": type.GoldETF,
@@ -57,4 +74,48 @@ this.checkBox={
     }
 
 
-} 
+
+  //..................... 
+  changeCheck(t, typecheck){
+this.checkBoxCheck={
+  "Email": typecheck.Email,
+  "Mobile": typecheck.Mobile
+}
+    console.log(t.checked);
+    console.log(typecheck);
+    this.preference.insert(this.checkBoxCheck).subscribe((data)=>{
+        this.preference=data;
+        console.log(this.preference);
+      })
+    if(t.checked){
+     this.selectedValue.push(typecheck)
+     }
+    else{
+     let updateItem = this.selectedValue.find(this.findIndexToUpdate, typecheck.contactTypeCheck);
+
+     let index = this.selectedValue.indexOf(updateItem);
+
+     this.selectedValue.splice(index, 1);
+    }
+    
+  }
+  
+  findIndexToUpdateCheck(type) { 
+        return type.contactTypeCheck === this;
+    }
+
+
+
+
+    //...................
+ public save(isValid: boolean, f:any) {
+   console.log("abc");
+        console.log(f);
+        this.preference.insertFrequency(f).subscribe((data)=>{
+          this.radioBut=data;
+          console.log(this.radioBut)
+        })
+    }
+}
+
+

@@ -1,30 +1,52 @@
-<span *ngFor="let x of maintainanceTypeList">
+
+<div class="img container"> 
+
+
+<!---->
+<h4>Select your Preferences</h4>
+<div class="check container">
+<span *ngFor="let x of preferenceTypeList">
     <md-checkbox 
        name="{{x.preferencestype}}" 
        value="{{x.preferencestype}}"
        (change)="change($event, x)">
          {{x.preferencestype}}
-    </md-checkbox>
-</span>
-<form #f="ngForm" novalidate>
-  <button type="submit" (click)="change(f.value, f.valid)">Submit</button>
-</form>
-<!-- <p> Selected value: {{selectedValue | json}} </p> -->
- <body ng-app="myApp">
+    </md-checkbox><br>
+</span></div>
 
-<div ng-controller="myCtrl">
-    <button ng-click="myFunc()">OK</button>
-    <p>The button has been clicked {{count}} times.</p>
+
+<!---->
+<h4>Mode of Contact</h4>
+<div class="check container">
+<span *ngFor="let y of modeOfContact">
+    <p>{{y.contactType}}</p>
+    <md-checkbox 
+       name="{{y.contactType}}" 
+       value="{{y.contactType}}"
+       (change)="changeCheck($event, y)">
+         {{y.contactTypeCheck}}
+    </md-checkbox><br>
+</span></div>
+
+
+<div class="space"></div>
+<!---->
+<div class="container">
+    <h4 class="text">Set frequency of notification</h4>
+    <div *ngFor="let gender of genders" class="radio">
+        <label>
+        <input type="radio" name="gender" [(ngModel)]="user.gender" [value]="gender.value">
+        {{gender.display}}
+        </label>
+    </div>
 </div>
 
-<script>
-angular.module('myApp', [])
-.controller('myCtrl', ['$scope', function($scope) {
-    $scope.count = 0;
-    $scope.myFunc = function() {
-        $scope.count++;
-    };
-}]);
-</script>
+<!---->
+<div class="btn">
+<form #f="ngForm" novalidate>
 
-</body>
+    <button type="submit" (click)="save(f.value, f.valid)">Submit</button>
+</form>
+<!-- <p> Selected value: {{selectedValue | json}} </p> -->
+</div>
+</div>

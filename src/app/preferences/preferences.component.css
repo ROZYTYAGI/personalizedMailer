@@ -1,11 +1,30 @@
-.pref{
-
+.img{
+	background-color: #e3e3e3;
+	height: 700px;
+}
+.space{
+	margin-top: 40px;
+}
+h4{
+	margin-top: 40px;
+	text-align: center;
+}
+.text{
+margin-top: 0px;
     text-align: center;
 
 }
 
 .check{
-
+	margin-top: 50px;
+margin-left: 450px;
 text-align:left; 
 
+}
+
+.radio{
+	margin-left: 450px;
+}
+.btn{
+	margin-left: 480px;
 }

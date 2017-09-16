@@ -10,4 +10,12 @@ insert(adds){
   return this.http.post('http://localhost:3001/insert_preference',adds)
   .map(res=>res.json());
 }
+insertSecondCheck(adds){
+  return this.http.post('http://localhost:3001/insert_check',adds)
+  .map(res=>res.json());
+}
+insertFrequency(adds){
+  return this.http.post('http://localhost:3001/insert',adds)
+  .map(res=>res.json());
+}
 }
