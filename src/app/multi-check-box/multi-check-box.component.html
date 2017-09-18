@@ -1,0 +1,20 @@
+
+<div class="containner">
+      <div class="col-md-3">
+        <h4 class="preferences">Select your Preferences</h4>
+        <angular2-multiselect [data]="placeholderExampleList" [(ngModel)]="placeholderExampleSelectedItems" [settings]="placeholderExampleSettings" (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+    </div>  
+   
+</div>
+
+ 
+<!-- <div class="containner">
+      <div class="col-md-3">
+        <h4 class="preferences">Mode of Contact</h4>
+        
+        <angular2-multiselect [data]="placeholderContactList" [(ngModel)]="basicExampleSelectedItemsContact" [settings]="placeholderContactSettings" (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+    </div>  
+   
+</div>
+
+  -->

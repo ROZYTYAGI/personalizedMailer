@@ -1,6 +1,6 @@
+
 .img{
-	background-color: #e3e3e3;
-	height: 700px;
+	height: 720px;
 }
 .space{
 	margin-top: 40px;
@@ -17,14 +17,14 @@ margin-top: 0px;
 
 .check{
 	margin-top: 50px;
-margin-left: 450px;
-text-align:left; 
+text-align:center; 
 
 }
 
 .radio{
-	margin-left: 450px;
+	float: center;
+	text-align:center;
 }
 .btn{
-	margin-left: 480px;
+	text-align:center;
 }

@@ -1,11 +1,10 @@
-
 <div class="img container"> 
-
 
 <!---->
 <h4>Select your Preferences</h4>
 <div class="check container">
-<span *ngFor="let x of preferenceTypeList">
+
+<span  *ngFor="let x of preferenceTypeList">
     <md-checkbox 
        name="{{x.preferencestype}}" 
        value="{{x.preferencestype}}"
@@ -42,11 +41,11 @@
 </div>
 
 <!---->
-<div class="btn">
+<div class="btn container">
 <form #f="ngForm" novalidate>
 
-    <button type="submit" (click)="save(f.value, f.valid)">Submit</button>
-</form>
-<!-- <p> Selected value: {{selectedValue | json}} </p> -->
+    <button type="submit" class="btn btn-primary" (click)="save(f.value, f.valid)">Ok</button>
+</form><br>
+<button type="submit" class="btn btn-primary">Submit</button>z
 </div>
 </div>
